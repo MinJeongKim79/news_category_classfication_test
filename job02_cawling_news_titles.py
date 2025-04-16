@@ -7,18 +7,18 @@ import time
 import pandas as pd
 import datetime
 
-category = ['Politics', 'Economic', 'Social', 'Culture', 'World', 'IT']
+category = ['Politiccs', 'Economic', 'Social', 'Culture', 'World', 'IT']
 df_titles = pd.DataFrame()
 xpath_roots = [
     'div[4]/div/div[2]',  # Politics
     'div[5]/div/div[2]',  # Economic
     'div[4]/div/div[2]',  # Social
     'div[4]/div/div[2]',  # Culture
-    'div[4]/div/div[2]',  # World
+    'div[4]/div/div[1]',  # World
     'div[4]/div/div[2]'   # IT
 ]
 title_roots = [
-    'div[4]/div/div[1]',  # Politics
+    'div[4]/div/div[1]',  # Politiccs
     'div[5]/div/div[1]',  # Economic
     'div[4]/div/div[1]',  # Social
     'div[4]/div/div[1]',  # Culture
@@ -33,7 +33,7 @@ options.add_argument('lang=ko_KR')
 service = ChromeService(executable_path=ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service, options=options)
 
-for outer_i in range(4,6):  # 준택님 2,4     민정님 4,6
+for outer_i in range(2):  # 준택님 2,4     민정님 4,6  # 준택님 2,4     민정님 4,6
     root_path = xpath_roots[outer_i]
     title_root = title_roots[outer_i]
     url = 'https://news.naver.com/section/10{}'.format(outer_i)
@@ -47,7 +47,7 @@ for outer_i in range(4,6):  # 준택님 2,4     민정님 4,6
         except:
             print(i)
     time.sleep(5)
-    for i in range(1, 900):
+    for i in range(1, 300):
         for j in range(1, 7):
             title_path = '//*[@id="newsct"]/{}/div[{}]/ul/li[{}]/div/div/div[2]/a/strong'.format(title_root, i, j)
             try:
