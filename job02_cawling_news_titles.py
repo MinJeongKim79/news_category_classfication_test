@@ -33,7 +33,7 @@ options.add_argument('lang=ko_KR')
 service = ChromeService(executable_path=ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service, options=options)
 
-for outer_i in range(2):  # 준택님 2,4     민정님 4,6  # 준택님 2,4     민정님 4,6
+for outer_i in range(2):  # 준택님 2,4     민정님 4,6
     root_path = xpath_roots[outer_i]
     title_root = title_roots[outer_i]
     url = 'https://news.naver.com/section/10{}'.format(outer_i)
